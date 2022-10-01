@@ -1,7 +1,6 @@
 var operationsHistory = []
 
 do {
-
   var val1 = parseInt(prompt('Podaj pierwszą liczbę'));
   var val2 = parseInt(prompt('Podaj drugą liczbę'));
   var operation = prompt('Podaj działanie (+-*/).');
@@ -32,6 +31,8 @@ do {
 
   console.log(result);
   operationsHistory.push(result)
+  
   var choice = prompt('Czy chcesz obliczać dalej? Wpisz N aby zakńczyć działanie.')
 } while(choice !== "N");
+
 console.log(operationsHistory);
