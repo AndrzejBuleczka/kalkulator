@@ -5,26 +5,32 @@ do {
 
   if(choice !== 'N') {
 
-    var val1 = prompt('Podaj pierwszą liczbę');
-    var val2 = prompt('Podaj drugą liczbę');
+    var val1 = parseInt(prompt('Podaj pierwszą liczbę'));
+    var val2 = parseInt(prompt('Podaj drugą liczbę'));
     var operation = prompt('Podaj działanie (+-*/).');
+    var result;
 
-    if(operation === '+') {
-      console.log(val1 + ' + ' + val2 + ' = ' + (parseInt(val1) + parseInt(val2)));
-      operationsHistory.push(val1 + ' + ' + val2 + ' = ' + (parseInt(val1) + parseInt(val2)))
+    if (isNaN(val1) || isNaN(val2)) {
+      result = "Niepoprawne wartości"
+    } else {
+      if(operation === '+') {
+        result = val1 + ' + ' + val2 + ' = ' + (val1 + val2)
+      }
+       else if(operation === '-') {
+        result = val1 + ' - ' + val2 + ' = ' + (val1 - val2)
+      }
+      else if(operation === '*') {
+        result = val1 + ' * ' + val2 + ' = ' + (val1 * val2)
+      }
+      else if(operation === '/') {
+        result = val1 + ' / ' + val2 + ' = ' + (val1 / val2)
+      } else {
+        result = "Niepoprawna operacja"
+      }
     }
-    if(operation === '-') {
-      console.log(val1 + ' - ' + val2 + ' = ' + (parseInt(val1) - parseInt(val2)));
-      operationsHistory.push(val1 + ' - ' + val2 + ' = ' + (parseInt(val1) - parseInt(val2)))
-    }
-    if(operation === '*') {
-      console.log(val1 + ' * ' + val2 + ' = ' + (parseInt(val1) * parseInt(val2)));
-      operationsHistory.push(val1 + ' * ' + val2 + ' = ' + (parseInt(val1) * parseInt(val2)))
-    }
-    if(operation === '/') {
-      console.log(val1 + ' / ' + val2 + ' = ' + (parseInt(val1) / parseInt(val2)));
-      operationsHistory.push(val1 + ' / ' + val2 + ' = ' + (parseInt(val1) / parseInt(val2)))
-    }
+
+    console.log(result);
+    operationsHistory.push(result)
   }
 } while(choice !== "N");
 console.log(operationsHistory);
